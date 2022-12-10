@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-v-2-tester-client-side-solution",
+    "id": "87e021d6-13a3-4b8d-abaa-65edd29432b2",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.15.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "spfx-v-2-tester description"
+      },
+      "longDescription": {
+        "default": "spfx-v-2-tester description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spfx-v-2-tester Feature",
+        "description": "The feature that activates elements of the spfx-v-2-tester solution.",
+        "id": "eea5704c-50c1-45ce-8cca-70d199569005",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-v-2-tester.sppkg"
+  }
+}
