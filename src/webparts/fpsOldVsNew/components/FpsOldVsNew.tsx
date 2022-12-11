@@ -3,6 +3,8 @@ import styles from './FpsOldVsNew.module.scss';
 import { IFpsOldVsNewProps } from './IFpsOldVsNewProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
+import EasyPagesHook from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/componentSources';
+
 export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, {}> {
 
   public render(): React.ReactElement<IFpsOldVsNewProps> {
@@ -14,7 +16,14 @@ export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, {}> 
       userDisplayName
     } = this.props;
 
-    
+    //          easyPagesExtraProps={ { ...this.props.easyPagesExtraProps, ...{ easyPagesExpanded: this.state.showEasyPages, easyPagesToggleExpanded: this._toggleEasyLinks.bind(this) } } }
+
+    const EasyPagesElement = <EasyPagesHook 
+    easyPagesExtraProps={ { ...this.props.easyPagesExtraProps, ...{ easyPagesExpanded: true, easyPagesToggleExpanded: () => alert('Hi!') } } }
+    easyPagesCommonProps= { this.props.easyPagesCommonProps }
+    // easyPagesCommonProps= { this.props.easyPagesCommonProps }
+    EasyIconsObject= { this.props.EasyIconsObject }
+  />;
 
     return (
       <section className={`${styles.fpsOldVsNew} ${hasTeamsContext ? styles.teams : ''}`}>
@@ -25,20 +34,7 @@ export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, {}> 
           <div>Web part property value: <strong>{escape(description)}</strong></div>
         </div>
         <div>
-          <h3>Welcome to SharePoint Framework!</h3>
-          <p>
-            The SharePoint Framework (SPFx) is a extensibility model for Microsoft Viva, Microsoft Teams and SharePoint. It&#39;s the easiest way to extend Microsoft 365 with automatic Single Sign On, automatic hosting and industry standard tooling.
-          </p>
-          <h4>Learn more about SPFx development:</h4>
-          <ul className={styles.links}>
-            <li><a href="https://aka.ms/spfx" target="_blank" rel="noreferrer">SharePoint Framework Overview</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-graph" target="_blank" rel="noreferrer">Use Microsoft Graph in your solution</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-teams" target="_blank" rel="noreferrer">Build for Microsoft Teams using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-viva" target="_blank" rel="noreferrer">Build for Microsoft Viva Connections using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-store" target="_blank" rel="noreferrer">Publish SharePoint Framework applications to the marketplace</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-api" target="_blank" rel="noreferrer">SharePoint Framework API reference</a></li>
-            <li><a href="https://aka.ms/m365pnp" target="_blank" rel="noreferrer">Microsoft 365 Developer Community</a></li>
-          </ul>
+         { EasyPagesElement }
         </div>
       </section>
     );
