@@ -5,6 +5,8 @@ import { escape } from '@microsoft/sp-lodash-subset';
 
 import EasyPagesHook from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/componentSources';
 
+require ('@mikezimm/fps-styles/dist/FPSHeadings.css');
+
 export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, {}> {
 
   public render(): React.ReactElement<IFpsOldVsNewProps> {
@@ -27,7 +29,7 @@ export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, {}> 
 
     return (
       <section className={`${styles.fpsOldVsNew} ${hasTeamsContext ? styles.teams : ''}`}>
-        <div className={styles.welcome}>
+        <div className={[ styles.welcome, 'gradiant1' ].join(' ')}>
           <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
           <h2>Well done, {escape(userDisplayName)}!</h2>
           <div>{environmentMessage}</div>
