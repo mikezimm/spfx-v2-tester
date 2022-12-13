@@ -1,19 +1,23 @@
 
-import { IEasyPagesSourceProps } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/componentPage';
-import { IEasyPagesExtraProps } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/componentSources';
-import { IEasyIcons } from '@mikezimm/fps-library-v2/lib/components/atoms/EasyIcons/eiTypes';
+import { IFPSCoreReactComponentProps } from '@mikezimm/fps-library-v2/lib/banner/mainReact/ReactComponentProps';
+import { IFPSCorePinMeReactComponentState } from '@mikezimm/fps-library-v2/lib/banner/mainReact/ReactComponentState';
 
-
-export interface IFpsOldVsNewProps {
-  
-  easyPagesSourceProps: IEasyPagesSourceProps;  // General props which apply to all Sources/Pages
-  easyPagesExtraProps: IEasyPagesExtraProps;  // General props which are used on the SourcesPage but not component page
-  EasyIconsObject: IEasyIcons; 
+export interface IFpsOldVsNewProps extends IFPSCoreReactComponentProps {
 
   description: string;
   isDarkTheme: boolean;
   environmentMessage: string;
   hasTeamsContext: boolean;
   userDisplayName: string;
-  
+
+}
+
+export interface IFpsOldVsNewState extends IFPSCorePinMeReactComponentState {
+
+  description: string;
+  isDarkTheme: boolean;
+  environmentMessage: string;
+  hasTeamsContext: boolean;
+  userDisplayName: string;
+
 }

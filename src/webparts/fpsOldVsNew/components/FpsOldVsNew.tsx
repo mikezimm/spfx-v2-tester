@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styles from './FpsOldVsNew.module.scss';
-import { IFpsOldVsNewProps } from './IFpsOldVsNewProps';
+import { IFpsOldVsNewProps, IFpsOldVsNewState } from './IFpsOldVsNewProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import EasyPagesHook from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/componentSources';
 
 require ('@mikezimm/fps-styles/dist/FPSHeadings.css');
 
-export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, {}> {
+export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, IFpsOldVsNewState > {
 
   public render(): React.ReactElement<IFpsOldVsNewProps> {
     const {
@@ -21,10 +21,10 @@ export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, {}> 
     //          easyPagesExtraProps={ { ...this.props.easyPagesExtraProps, ...{ easyPagesExpanded: this.state.showEasyPages, easyPagesToggleExpanded: this._toggleEasyLinks.bind(this) } } }
 
     const EasyPagesElement = <EasyPagesHook 
-    easyPagesExtraProps={ { ...this.props.easyPagesExtraProps, ...{ easyPagesExpanded: true, easyPagesToggleExpanded: () => alert('Hi!') } } }
-    easyPagesSourceProps= { this.props.easyPagesSourceProps }
+    easyPagesExtraProps={ { ...this.props.bannerProps.easyPagesExtraProps, ...{ easyPagesExpanded: true, easyPagesToggleExpanded: () => alert('Hi!') } } }
+    easyPagesSourceProps= { this.props.bannerProps.easyPagesSourceProps }
     // easyPagesCommonProps= { this.props.easyPagesCommonProps }
-    EasyIconsObject= { this.props.EasyIconsObject }
+    EasyIconsObject= { this.props.bannerProps.EasyIconsObject }
   />;
 
     return (
