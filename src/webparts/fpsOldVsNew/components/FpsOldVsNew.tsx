@@ -22,7 +22,7 @@ export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, {}> 
 
     const EasyPagesElement = <EasyPagesHook 
     easyPagesExtraProps={ { ...this.props.easyPagesExtraProps, ...{ easyPagesExpanded: true, easyPagesToggleExpanded: () => alert('Hi!') } } }
-    easyPagesCommonProps= { this.props.easyPagesCommonProps }
+    easyPagesSourceProps= { this.props.easyPagesSourceProps }
     // easyPagesCommonProps= { this.props.easyPagesCommonProps }
     EasyIconsObject= { this.props.EasyIconsObject }
   />;

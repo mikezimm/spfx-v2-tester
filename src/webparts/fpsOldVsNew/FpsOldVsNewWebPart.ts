@@ -21,9 +21,9 @@ import { IFpsOldVsNewProps } from './components/IFpsOldVsNewProps';
 // import { getCurrentUser, IEnsureUserInfo,  } from '@mikezimm/fps-library-v2/lib/pnpjs/Users/indexes/GetCurrentUser';
 // import { IUserPermissionsInfo } from '@mikezimm/fps-library-v2/lib/pnpjs/Users/interfaces/IUserPermissionsInfo';
 
-import { SitePagesSource } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/epTypes';
-import { getSourceItems, prepSourceColumns } from '@mikezimm/fps-library-v2/lib/pnpjs/SourceItems/index';
-import { IItemsError } from '@mikezimm/fps-library-v2/lib/pnpjs/SourceItems/Interface';
+// import { SitePagesSource } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/epTypes';
+// import { getSourceItems, prepSourceColumns } from '@mikezimm/fps-library-v2/lib/pnpjs/SourceItems';
+// import { IItemsError } from '@mikezimm/fps-library-v2/lib/pnpjs/SourceItems/Interface';
 
 import { IEasyPagesHookProps } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/componentSources';
 import { EasyIconObjectDefault } from '@mikezimm/fps-library-v2/lib/components/atoms/EasyIcons/eiTypes';
@@ -45,10 +45,14 @@ export default class FpsOldVsNewWebPart extends BaseClientSideWebPart<IFpsOldVsN
   // private _getCurrentUser: IEnsureUserInfo = null;
   // private _ensureUserInfo: IEnsureUserInfo = null;
   // private _ensureUserHere: IEnsureUserInfo = null;
-  private _getSourceItems: IItemsError = null;
+  // private _getSourceItems: IItemsError = null;
   private _EPProps: IEasyPagesHookProps = null;
 
   public render(): void {
+
+    console.log('_pageLayoutType:', this.context[`_pageLayoutType`] );
+    console.log('pageLayoutType:', this.context['pageLayoutType' as '_pageLayoutType'] );
+
     const element: React.ReactElement<IFpsOldVsNewProps> = React.createElement(
       FpsOldVsNew,
       {
@@ -58,7 +62,7 @@ export default class FpsOldVsNewWebPart extends BaseClientSideWebPart<IFpsOldVsN
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
         userDisplayName: this.context.pageContext.user.displayName,
 
-        easyPagesCommonProps: this._EPProps.easyPagesCommonProps,
+        easyPagesSourceProps: this._EPProps.easyPagesSourceProps,
   
         easyPagesExtraProps: this._EPProps.easyPagesExtraProps,
   
@@ -66,7 +70,6 @@ export default class FpsOldVsNewWebPart extends BaseClientSideWebPart<IFpsOldVsN
 
       }
     );
-
 
     ReactDom.render(element, this.domElement);
   }
@@ -90,7 +93,7 @@ export default class FpsOldVsNewWebPart extends BaseClientSideWebPart<IFpsOldVsN
       // this._getSourceItems = await getSourceItems( prepSourceColumns( SitePagesSource, this.context.pageContext.web.serverRelativeUrl ), true, true );
 
       this._EPProps = {
-        easyPagesCommonProps: {
+        easyPagesSourceProps: {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           context: this.context as any,
           pageLayout: this.context['_pageLayoutType'],
@@ -109,11 +112,13 @@ export default class FpsOldVsNewWebPart extends BaseClientSideWebPart<IFpsOldVsN
 
           EasyPageOverflowTab: 'Others',
 
-          tabsC: ['Home', 'SPFx'],
+          tabsC: [ 'Home', 'Contents', 'SPFx'],
           tabsP: [],
-          tabsA: [],
+          tabsA: [ 'Home', 'Drilldown', 'Contents' ],
           tabsB: [],
-
+          // EasyPageParentFetch?: boolean;
+          EasyPageUrlA: '/sites/templates/tmt',
+          EasyPagesSiteTitleA: 'TrackMyTime',
         },
         EasyIconsObject: EasyIconObjectDefault,
 
