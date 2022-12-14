@@ -36,7 +36,7 @@ import * as links from '@mikezimm/fps-library-v2/lib/components/atoms/Links/Link
 import { IRepoLinks } from '@mikezimm/fps-library-v2/lib/components/atoms/Links/CreateLinks';
 export { IRepoLinks } from '@mikezimm/fps-library-v2/lib/components/atoms/Links/CreateLinks';
 
-export const repoLink: IRepoLinks = links.gitRepoDrillDownSmall;
+export const repoLink: IRepoLinks = links.gitRepoALVFinManSmall;
 export const trickyEmails = links.trickyEmails;
 
 export { createBasePerformanceInit, startPerformOp, updatePerformanceEnd } from '@mikezimm/fps-library-v2/lib/components/molecules/Performance/functions';
@@ -99,11 +99,14 @@ export {  } from '@mikezimm/fps-library-v2/lib/components';
  */
 
 export { WebPartInfoGroup, } from '@mikezimm/fps-library-v2/lib/banner/components/PropPane/WebPartInfoGroup';
-// export { FPSOptionsGroupBasic, } from '@mikezimm/npmfunctions/dist/Services/PropPane/FPSOptionsGroup3';
-// export { FPSBanner4BasicGroup,FPSBanner3NavGroup, FPSBanner3ThemeGroup } from '@mikezimm/npmfunctions/dist/Services/PropPane/FPSOptionsGroup3';
+export { FPSOptionsGroupBasic, } from '@mikezimm/fps-library-v2/lib/banner/PropPane/FPSOptionsGroupBasic';
+export { FPSBanner4BasicGroup,  } from '@mikezimm/fps-library-v2/lib/banner/PropPane/FPSBanner4BasicGroup';
+export { FPSBanner3NavGroup, } from '@mikezimm/fps-library-v2/lib/banner/PropPane/FPSBanner3NavGroup';
+export { FPSBanner3ThemeGroup } from '@mikezimm/fps-library-v2/lib/banner/PropPane/FPSBanner3ThemeGroup';
 export { FPSBanner3VisHelpGroup } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/FPSOptionsGroupVisHelp';
 export { FPSPinMePropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/PinMePropGroup';
 export { FPSOptionsExpando, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/ExpandoPropGroup'; //expandAudienceChoicesAll
+export { buildEasyPagesGroup, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/EasyPagesGroup'; //expandAudienceChoicesAll
 
 
 

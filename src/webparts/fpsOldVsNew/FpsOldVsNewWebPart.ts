@@ -113,11 +113,12 @@ import { mainWebPartRenderBannerSetup, IMainWPBanerSetup } from '@mikezimm/fps-l
 import { PropertyPaneWebPartInformation } from '@pnp/spfx-property-controls/lib/PropertyPaneWebPartInformation';
 
 import { WebPartInfoGroup, } from './fpsMinIndex';
-// import { FPSOptionsGroupBasic, } from './fpsMinIndex';
-// import { FPSBanner4BasicGroup, FPSBanner3NavGroup, FPSBanner3ThemeGroup } from './fpsMinIndex';
+import { FPSOptionsGroupBasic, } from './fpsMinIndex';
+import { FPSBanner4BasicGroup, FPSBanner3NavGroup, FPSBanner3ThemeGroup } from './fpsMinIndex';
 import { FPSBanner3VisHelpGroup } from './fpsMinIndex';
 import { FPSPinMePropsGroup } from './fpsMinIndex';
 import { FPSOptionsExpando, } from './fpsMinIndex'; //expandAudienceChoicesAll
+import { buildEasyPagesGroup, } from './fpsMinIndex'; //expandAudienceChoicesAll
 
 
 
@@ -265,8 +266,7 @@ export default class FpsOldVsNewWebPart extends BaseClientSideWebPart<IFpsOldVsN
     console.log('_pageLayoutType:', this.context[`_pageLayoutType`] );
     console.log('pageLayoutType:', this.context['pageLayoutType' as '_pageLayoutType'] );
 
-    const {displayMode, _beAReader, _FPSUser, //repoLink.desc, 
-    properties,  context, _modifyBannerTitle, 
+    const {displayMode, _beAReader, _FPSUser, properties,  context, _modifyBannerTitle, 
     _forceBanner, _performance, _wpInstanceID, _keysToShow, _sitePresets, domElement } = this;
 
     //repoLink, trickyEmails, exportProps, strings , domElement.clientWidth, 
@@ -329,8 +329,10 @@ export default class FpsOldVsNewWebPart extends BaseClientSideWebPart<IFpsOldVsN
         hasTeamsContext: !!context.sdks.microsoftTeams,
         userDisplayName: context.pageContext.user.displayName,
 
+        performance: this._performance, //Alternatively, use this if available (like ALVFM): _fetchInfo.performance,
+
         errMessage: '',
-        bannerProps: null,
+        bannerProps: bannerProps,
 
 
       }
@@ -470,12 +472,12 @@ export default class FpsOldVsNewWebPart extends BaseClientSideWebPart<IFpsOldVsN
             groups: [
               WebPartInfoGroup( repoLink, 'Sample FPS Banner component :)', PropertyPaneWebPartInformation ),
               FPSPinMePropsGroup, //End this group  
-  
+              buildEasyPagesGroup( this.properties, this.context.pageContext ), 
               FPSBanner3VisHelpGroup( this.context, this.onPropertyPaneFieldChanged, this.properties ),
-              // FPSBanner4BasicGroup( this._forceBanner , this._modifyBannerTitle, this.properties.showBanner, this.properties.infoElementChoice === 'Text' ? true : false, true, true ),
-              // FPSBanner3NavGroup(),
-              // FPSBanner3ThemeGroup( this._modifyBannerStyle, this.properties.showBanner, this.properties.lockStyles, false ),
-              // FPSOptionsGroupBasic( false, true, true, true, this.properties.allSectionMaxWidthEnable, true, this.properties.allSectionMarginEnable, true ), // this group
+              FPSBanner4BasicGroup( this._forceBanner , this._modifyBannerTitle, this.properties.showBanner, this.properties.infoElementChoice === 'Text' ? true : false, true, true ),
+              FPSBanner3NavGroup(),
+              FPSBanner3ThemeGroup( this._modifyBannerStyle, this.properties.showBanner, this.properties.lockStyles, false ),
+              FPSOptionsGroupBasic( false, true, true, true, this.properties.allSectionMaxWidthEnable, true, this.properties.allSectionMarginEnable, true ), // this group
               FPSOptionsExpando( this.properties.enableExpandoramic, this.properties.enableExpandoramic,null, null ),
     
               FPSImportPropsGroup, // this group
