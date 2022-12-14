@@ -87,6 +87,24 @@ export {  } from '@mikezimm/fps-library-v2/lib/components';
 export {  } from '@mikezimm/fps-library-v2/lib/components';
 
 
+/***
+ *    d8888b. d8888b.  .d88b.  d8888b.       d888b  d8888b.  .d88b.  db    db d8888b. .d8888. 
+ *    88  `8D 88  `8D .8P  Y8. 88  `8D      88' Y8b 88  `8D .8P  Y8. 88    88 88  `8D 88'  YP 
+ *    88oodD' 88oobY' 88    88 88oodD'      88      88oobY' 88    88 88    88 88oodD' `8bo.   
+ *    88~~~   88`8b   88    88 88~~~        88  ooo 88`8b   88    88 88    88 88~~~     `Y8b. 
+ *    88      88 `88. `8b  d8' 88           88. ~8~ 88 `88. `8b  d8' 88b  d88 88      db   8D 
+ *    88      88   YD  `Y88P'  88            Y888P  88   YD  `Y88P'  ~Y8888P' 88      `8888Y' 
+ *
+ *    USED FOR PROPERTY PANE GROUPS
+ */
+
+export { WebPartInfoGroup, } from '@mikezimm/fps-library-v2/lib/banner/components/PropPane/WebPartInfoGroup';
+// export { FPSOptionsGroupBasic, } from '@mikezimm/npmfunctions/dist/Services/PropPane/FPSOptionsGroup3';
+// export { FPSBanner4BasicGroup,FPSBanner3NavGroup, FPSBanner3ThemeGroup } from '@mikezimm/npmfunctions/dist/Services/PropPane/FPSOptionsGroup3';
+export { FPSBanner3VisHelpGroup } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/FPSOptionsGroupVisHelp';
+export { FPSPinMePropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/PinMePropGroup';
+export { FPSOptionsExpando, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/ExpandoPropGroup'; //expandAudienceChoicesAll
+
 
 
 // For Main React component
