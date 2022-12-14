@@ -106,7 +106,7 @@ export { FPSBanner3ThemeGroup } from '@mikezimm/fps-library-v2/lib/banner/PropPa
 export { FPSBanner3VisHelpGroup } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/FPSOptionsGroupVisHelp';
 export { FPSPinMePropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/PinMePropGroup';
 export { FPSOptionsExpando, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/ExpandoPropGroup'; //expandAudienceChoicesAll
-export { buildEasyPagesGroup, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/EasyPagesGroup'; //expandAudienceChoicesAll
+export { FPSEasyPagesGroup, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/EasyPagesGroup'; //expandAudienceChoicesAll
 
 
 

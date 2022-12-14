@@ -118,7 +118,7 @@ import { FPSBanner4BasicGroup, FPSBanner3NavGroup, FPSBanner3ThemeGroup } from '
 import { FPSBanner3VisHelpGroup } from './fpsMinIndex';
 import { FPSPinMePropsGroup } from './fpsMinIndex';
 import { FPSOptionsExpando, } from './fpsMinIndex'; //expandAudienceChoicesAll
-import { buildEasyPagesGroup, } from './fpsMinIndex'; //expandAudienceChoicesAll
+import { FPSEasyPagesGroup, } from './fpsMinIndex'; //expandAudienceChoicesAll
 
 
 
@@ -472,7 +472,8 @@ export default class FpsOldVsNewWebPart extends BaseClientSideWebPart<IFpsOldVsN
             groups: [
               WebPartInfoGroup( repoLink, 'Sample FPS Banner component :)', PropertyPaneWebPartInformation ),
               FPSPinMePropsGroup, //End this group  
-              buildEasyPagesGroup( this.properties, this.context.pageContext ), 
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              FPSEasyPagesGroup( this.properties, this.context.pageContext as any ), 
               FPSBanner3VisHelpGroup( this.context, this.onPropertyPaneFieldChanged, this.properties ),
               FPSBanner4BasicGroup( this._forceBanner , this._modifyBannerTitle, this.properties.showBanner, this.properties.infoElementChoice === 'Text' ? true : false, true, true ),
               FPSBanner3NavGroup(),
