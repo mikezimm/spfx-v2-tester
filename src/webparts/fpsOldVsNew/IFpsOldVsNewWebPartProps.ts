@@ -5,28 +5,11 @@
  * Or else it will get into an endless loop because these values are imported into fpsPreferences
  * 
  */
- import { exportIgnorePropsFPS, } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/IgnoreBlockProps';
- import { importBlockPropsFPS } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/IgnoreBlockProps';
+import { exportIgnorePropsFPS, } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/IgnoreBlockProps';
+import { importBlockPropsFPS } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/IgnoreBlockProps';
 
- import { IMinBannerUIProps, } from "@mikezimm/fps-library-v2/lib/banner/interfaces/MinWP/IMinBannerUIProps";
- import { IMinBannerUtilityProps, } from "@mikezimm/fps-library-v2/lib/banner/interfaces/MinWP/IMinBannerUtilityProps";
-
- import { IMinBannerThemeProps } from "@mikezimm/fps-library-v2/lib/banner/interfaces/Theme/Interfaces";
-
- import { IMinPinMeProps, } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/Interfaces';
-
- import { IMinPandoramicProps, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/Interfaces';
-
- import { IMinCustomHelpProps, } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/Interfaces';
-
- import { IMinPageStyleProps, } from '@mikezimm/fps-library-v2/lib/banner/features/PageStyle/Interfaces';
-
- import { IEasyIconsWPProps, } from '@mikezimm/fps-library-v2/lib/components/atoms/EasyIcons/eiTypes';
-
- import { IEasyPagesWPProps, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/epTypes';
-
-
- import { changesAgeSlider } from '@mikezimm/fps-library-v2/lib/components/atoms/FPSAgeSlider/FPSAgeTypes';
+import { changesAgeSlider } from '@mikezimm/fps-library-v2/lib/components/atoms/FPSAgeSlider/FPSAgeTypes';
+import { IMinWPBannerProps } from '@mikezimm/fps-library-v2/lib/banner/interfaces/MinWP/IMinWPBannerProps';
 
 
  /**
@@ -58,8 +41,10 @@ export const importBlockPropsThis : string[] = [ 'showSomeProps' ];
 
 export const importBlockProps : string[] = [ ...importBlockPropsFPS, ...importBlockPropsThis ];
 
-export interface IFpsOldVsNewWebPartProps extends IMinBannerUIProps, IMinPinMeProps, IMinPandoramicProps, IMinBannerThemeProps, 
-  IMinCustomHelpProps, IMinPageStyleProps, IMinBannerUtilityProps, 
-  IEasyPagesWPProps, IEasyIconsWPProps {
+//IMinBannerUIProps, IEasyPagesIconsWPProps, IMinPinMeProps, IMinPandoramicProps, 
+// IMinBannerThemeProps, IMinCustomHelpProps, IMinPageStyleProps, 
+// IMinBannerUtilityProps IEasyPagesWPProps, IEasyIconsWPProps
+
+export interface IFpsOldVsNewWebPartProps extends IMinWPBannerProps {
     description: string;
   }

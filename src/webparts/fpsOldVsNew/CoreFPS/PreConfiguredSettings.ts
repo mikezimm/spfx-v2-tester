@@ -1,32 +1,12 @@
-// import { IPropertyFieldGroupOrPerson } from "@pnp/spfx-property-controls/lib/PropertyFieldPeoplePicker";
-// import { IDrilldownV2WebPartProps } from "../IDrilldownV2WebPartProps";
 
-import { EasyIconDefaultKeys } from '../fpsMinIndex';
-import { DefaultEasyPagesTabs, DefaultOverflowTab } from '../fpsMinIndex';
-// import { FPSAgeSliderPresetEverywhere } from '../components/FPSAgeSlider/FPSAgeTypes';
-import { FPSAgeSliderPresetEverywhere } from '../fpsMinIndex';
-import { PresetFPSBanner, } from '../fpsMinIndex';
-import { IPreConfigSettings, IAllPreConfigSettings,  } from '../fpsMinIndex';
-// import { encrptMeOriginalTest } from '@mikezimm/npmfunctions/dist/HelpPanelOnNPM/onNpm/logTest';
-// import { ContALVFMContent, ContALVFMWebP } from '@mikezimm/npmfunctions/dist/HelpPanelOnNPM/onNpm/constants';
+import { PresetFPSBanner, } from '@mikezimm/fps-library-v2/lib/common/PropPaneHelp/PreConfiguredConstants';
+import { IPreConfigSettings, IAllPreConfigSettings,  } from '@mikezimm/fps-library-v2/lib/common/PropPaneHelp/IPreConfig';
 
 export const WPForceEverywhere : IPreConfigSettings = {
     source: 'WPForceEverywhere',
     location: '*',
     props: {
-        // relatedStyle: '',
-
         // pageLinksheading: 'Images and Links',
-        // pageLinksshowItems: true,
-        // pageLinksisExpanded: false,
-        // canvasLinks: true,
-        // canvasImgs: true,
-        // pageLinksweb: 'current',
-        // pageLinkslistTitle: 'Site Pages',
-        // pageLinksrestFilter: 'ID eq {{PageId}}',
-        // pageLinkslinkProp: 'File/ServerRelativeUrl', // aka FileLeaf to open file name, if empty, will just show the value
-        // pageLinksdisplayProp: 'FileLeafRef',
-
     }
 };
 
@@ -104,45 +84,8 @@ export const WPPresetEverywhere : IPreConfigSettings = {
       feedbackEmail: `ae57524a.${window.location.hostname}.onmicrosoft.com@amer.teams.ms`,
 
       itemsPerPage:20,
-
-      // FPS Banner Navigation
-      // showGoToHome: true,
-      // showGoToParent: true,
-
-      //  Banner Theme props that are not preset in manifest.json
-      //  bannerStyleChoice: 'corpDark1',
-      //  bannerStyle: '{\"color\":\"white\",\"backgroundColor\":\"#005495\",\"fontSize\":\"larger\",\"fontWeight\":600,\"fontStyle\":\"normal\",\"padding\":\"0px 10px\",\"height\":\"48px\",\"cursor\":\"pointer\"}',
-      //  bannerCmdStyle: '{\"color\":\"white\",\"backgroundColor\":\"#005495\",\"fontSize\":16,\"fontWeight\":\"normal\",\"fontStyle\":\"normal\",\"padding\":\"7px 4px\",\"marginRight\":\"0px\",\"borderRadius\":\"5px\",\"cursor\":\"pointer\"}',
-      //  lockStyles: true,
-      //  Move these to npmFunctions when code is moved
-
-      //Move these to npmFunctions when code is moved
-
-      EasyPagesEnable: false, //Disabled by default on Drilldown until can test in prod
-      EasyPagesAudience: 'Everyone',
-      EasyPageTabsC:  DefaultEasyPagesTabs.join(' ; '), // Added spaces for readability
-      EasyPageTabsP:  DefaultEasyPagesTabs.join(' ; '), // Added spaces for readability
-      EasyPageTabsA:  DefaultEasyPagesTabs.join(' ; '), // Added spaces for readability
-      EasyPageTabsB:  DefaultEasyPagesTabs.join(' ; '), // Added spaces for readability
-      EasyPageOverflowTab:  DefaultOverflowTab,
-      EasyPageParent: true, //Include parent site pages
-      EasyPageUrlA: '', //Include alternate site's site pages
-      EasyPagesSiteTitleA:  '', //Include navigation elements from other site
-      EasyPageUrlB: '', //Include alternate site's site pages
-      EasyPagesSiteTitleB:  '', //Include navigation elements from other site
-      easyPageSeparateExtras:  true, //Include navigation elements from other site
-      EasyPageStyles:  '',  //Optional styles on entire page
-      EasyPageContainerStyles:  '',  //Optional styles on container element
-
-      easyIconEnable: true, // Used 
-      easyIconKeys:  EasyIconDefaultKeys.join(' ; '), // Added spaces for readability
-      easyIconIgnore:  '',
-
-      // FPSAgeIsVisible:  false,
-      // FPSAgeColumnName: 'Modified',
-      // FPSAgeColumnTitle: 'Modified',
-      // FPSAgeDefault: 4,  //Should be index of AgeSliderOption
-    }, ...{ ...FPSAgeSliderPresetEverywhere } }
+    }}, ...{ ...{} }
+    // }, ...{ ...FPSAgeSliderPresetEverywhere } }
 };
 
 export const PresetSomeRandomSite : IPreConfigSettings = {

@@ -10,6 +10,7 @@
  * @returns 
  */
 
+// eslint-disable-next-line @rushstack/no-new-null
 export function futureContent( ) : null {
 
     return null;

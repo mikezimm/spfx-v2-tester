@@ -21,9 +21,8 @@ require ('@mikezimm/fps-styles/dist/FPSHeadings.css');
 
 export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, IFpsOldVsNewState > {
 
-
   private _performance: ILoadPerformance = null;
-  private _contentPages : IBannerPages = getBannerPages( this.props.bannerProps );
+  private _contentPages : IBannerPages = getBannerPages( this.props.bannerProps.showRepoLinks, this.props.bannerProps.gitHubRepo );
 
   private _updatePinState( newValue: IPinMeState ): void {
     this.setState({ pinState: newValue, });
@@ -110,7 +109,7 @@ const refresh = this.props.bannerProps.displayMode !== prevProps.bannerProps.dis
 //refresh these privates when the prop changes warrent it
 if ( refresh === true ) {
   // this._webPartHelpElement = getWebPartHelpElement( this.props.bannerProps.sitePresets );
-  this._contentPages = getBannerPages( this.props.bannerProps );
+  this._contentPages = getBannerPages( this.props.bannerProps.showRepoLinks, this.props.bannerProps.gitHubRepo );
 }
 
 
@@ -161,6 +160,7 @@ public _updatePerformance (): boolean  {
   */
 
   //End tracking performance
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ops: any = this._performance.ops;
 
   this._performance.ops[updateThis] = updatePerformanceEnd( ops[updateThis], true, 888 );
@@ -171,7 +171,7 @@ public _updatePerformance (): boolean  {
 
   //PERFORMANCE COMMENT:  YOU NEED TO UPDATE STATE HERE FOR IT TO REFLECT IN THE BANNER.
   this.setState({ 
-  refreshId: this._newRefreshId(),
+    refreshId: this._newRefreshId(),
   });
 
   return true;
@@ -198,7 +198,7 @@ public _updatePerformance (): boolean  {
       bannerProps={ this.props.bannerProps }
       parentState={ this.state }
 
-      WebPartHelpPivots= { [ CommandsPage ] }
+      WebPartHelpPivots= { [ CommandsPage( this.props.bannerProps.gitHubRepo ) ] }
       nearBannerElementsArray={ [] }
       farBannerElementsArray={ [] }
 

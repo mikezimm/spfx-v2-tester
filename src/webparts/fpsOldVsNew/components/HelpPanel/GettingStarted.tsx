@@ -11,6 +11,8 @@
  * @param repoLinks 
  * @returns 
  */
+
+// eslint-disable-next-line @rushstack/no-new-null
 export function gettingStartedContent(  ) : null {
 
     return null;

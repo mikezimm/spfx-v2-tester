@@ -6,7 +6,9 @@ import {
   IPropertyPaneConfiguration,
 } from '@microsoft/sp-property-pane';
 import {   
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ThemeProvider,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ThemeChangedEventArgs,
   IReadonlyTheme, } from '@microsoft/sp-component-base';
 
@@ -42,13 +44,16 @@ import { PreConfiguredProps,  } from './CoreFPS/PreConfiguredSettings';
 
 import { PropertyPaneWebPartInformation } from '@pnp/spfx-property-controls/lib/PropertyPaneWebPartInformation';
 
-import { WebPartInfoGroup, } from './fpsMinIndex';
-import { FPSOptionsGroupBasic, } from './fpsMinIndex';
-import { FPSBanner4BasicGroup, FPSBanner3NavGroup, FPSBanner3ThemeGroup } from './fpsMinIndex';
-import { FPSBanner3VisHelpGroup } from './fpsMinIndex';
-import { FPSPinMePropsGroup } from './fpsMinIndex';
-import { FPSOptionsExpando, } from './fpsMinIndex'; //expandAudienceChoicesAll
-import { FPSEasyPagesGroup, } from './fpsMinIndex'; //expandAudienceChoicesAll
+import { WebPartInfoGroup, } from '@mikezimm/fps-library-v2/lib/banner/propPane/WebPartInfoGroup';
+import { FPSOptionsGroupBasic, } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSOptionsGroupBasic';
+import { FPSBanner4BasicGroup,  } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSBanner4BasicGroup';
+import { FPSBanner3NavGroup, } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSBanner3NavGroup';
+import { FPSBanner3ThemeGroup } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSBanner3ThemeGroup';
+import { FPSBanner3VisHelpGroup } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/FPSOptionsGroupVisHelp';
+import { FPSPinMePropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/PinMePropGroup';
+import { FPSOptionsExpando, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/ExpandoPropGroup'; //expandAudienceChoicesAll
+import { FPSEasyPagesGroup, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/EasyPagesGroup'; //expandAudienceChoicesAll
+
 
  /***
   *    d8888b. d8888b.  .d88b.  d8888b.      d888888b .88b  d88. d8888b.  .d88b.  d8888b. d888888b d888888b d8b   db  d888b  
@@ -61,7 +66,7 @@ import { FPSEasyPagesGroup, } from './fpsMinIndex'; //expandAudienceChoicesAll
   *    USED for IMPORTING and EXPORTING
   */
  
- import { FPSImportPropsGroup } from './fpsMinIndex';
+ import { FPSImportPropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/ImportFunctions';
 
  
  /***
@@ -207,8 +212,8 @@ export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPar
  *                                                                                                                                 
  */
 
-  //Copied from AdvancedPagePropertiesWebPart.ts
-  // protected onPropertyPaneFieldChanged(propertyPath: string, oldValue: any, newValue: any): void {
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     protected async onPropertyPaneFieldChanged(propertyPath: string, oldValue: any, newValue: any): Promise<void> {
       super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
 

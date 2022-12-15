@@ -4,6 +4,7 @@
 // import { IRepoLinks, repoLink, } from '../../fpsReferences';
 // import { convertIssuesMarkdownStringToSpan } from '../../fpsReferences';
 
+// eslint-disable-next-line @rushstack/no-new-null
 export function errorsContent( )  : null{
 
     return null;
