@@ -7,35 +7,26 @@
  */
  import { exportIgnorePropsFPS, } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/IgnoreBlockProps';
  import { importBlockPropsFPS } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/IgnoreBlockProps';
- import { IItemEditorAudience , IEveryoneAudience } from '@mikezimm/fps-library-v2/lib/banner/propPane/Audiences/Interfaces';
 
  import { IMinBannerUIProps, } from "@mikezimm/fps-library-v2/lib/banner/interfaces/MinWP/IMinBannerUIProps";
  import { IMinBannerUtilityProps, } from "@mikezimm/fps-library-v2/lib/banner/interfaces/MinWP/IMinBannerUtilityProps";
- import { IMinWPBannerProps, } from "@mikezimm/fps-library-v2/lib/banner/interfaces/MinWP/IMinWPBannerProps";
 
  import { IMinBannerThemeProps } from "@mikezimm/fps-library-v2/lib/banner/interfaces/Theme/Interfaces";
- import { changeBannerTheme } from "@mikezimm/fps-library-v2/lib/banner/interfaces/Theme/Interfaces";
 
- import { IMinPinMeProps, IFPSPinMenu, IPinMeState, IPinStatus } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/Interfaces';
- import { changePinMe, } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/Interfaces';
+ import { IMinPinMeProps, } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/Interfaces';
 
  import { IMinPandoramicProps, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/Interfaces';
- import { changeExpando, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/Interfaces';
 
- import { IMinCustomHelpProps, IMinWPVisitorPanelInfo, } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/Interfaces';
- import { changeCustomHelp, } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/Interfaces';
+ import { IMinCustomHelpProps, } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/Interfaces';
 
  import { IMinPageStyleProps, } from '@mikezimm/fps-library-v2/lib/banner/features/PageStyle/Interfaces';
- import { changePageStyle} from '@mikezimm/fps-library-v2/lib/banner/features/PageStyle/Interfaces';
 
  import { IEasyIconsWPProps, } from '@mikezimm/fps-library-v2/lib/components/atoms/EasyIcons/eiTypes';
- import { changeEasyIcons } from '@mikezimm/fps-library-v2/lib/components/atoms/EasyIcons/eiTypes';
- 
+
  import { IEasyPagesWPProps, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/epTypes';
- import { changeEasyPages, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/epTypes';
 
 
- import { changesAgeSlider } from './fpsWebpartIndex';
+ import { changesAgeSlider } from '@mikezimm/fps-library-v2/lib/components/atoms/FPSAgeSlider/FPSAgeTypes';
 
 
  /**
@@ -53,15 +44,6 @@ export const WebPartAnalyticsChanges : any = {
 export const WebPartPanelChanges : any = {
 
 }
-
-
-
-
-// import { IWebpartHistory } from '@mikezimm/fps-library-v2/lib/Services/PropPane/WebPartHistory/Interface';
-
-// import { IFPSAgeSliderWPProps } from '@mikezimm/fps-react/lib/FPSAgeSlider';
-// import { IFPSAgeSliderWPProps } from './components/FPSAgeSlider/FPSAgeTypes';
-
 
 //Specific for this web part
 export const exportIgnorePropsThis : string[] = [ ];
