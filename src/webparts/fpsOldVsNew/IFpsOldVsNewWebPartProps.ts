@@ -35,6 +35,26 @@
  import { changeEasyPages, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/epTypes';
 
 
+ import { changesAgeSlider } from './fpsWebpartIndex';
+
+
+ /**
+  For props to export to panel but NOT save in analytics
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const WebPartAnalyticsChanges : any = {
+  AgeSlider: changesAgeSlider,
+}
+
+ /**
+ * These are properties to export BOTH to analytics AND the panel
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const WebPartPanelChanges : any = {
+
+}
+
+
 
 
 // import { IWebpartHistory } from '@mikezimm/fps-library-v2/lib/Services/PropPane/WebPartHistory/Interface';

@@ -43,6 +43,7 @@ import { changeEasyIcons } from '../fpsMinIndex';
 import { changeEasyPages, } from '../fpsMinIndex';
 
 import { changesAgeSlider } from '../fpsWebpartIndex';
+import { IMinWPBannerProps } from '@mikezimm/fps-library-v2/lib/banner/interfaces/MinWP/IMinWPBannerProps';
 /***
  *    d88888b db    db d8888b.  .d88b.  d8888b. d888888b      d8888b. d8888b.  .d88b.  d8888b. .d8888. 
  *    88'     `8b  d8' 88  `8D .8P  Y8. 88  `8D `~~88~~'      88  `8D 88  `8D .8P  Y8. 88  `8D 88'  YP 
@@ -59,19 +60,23 @@ import { changesAgeSlider } from '../fpsWebpartIndex';
  * @returns exportObject
  */
 
- export function buildExportProps( wpProps : IFpsOldVsNewWebPartProps, wpInstanceID: string, currentWeb: string, ) : any {
+ export function buildExportProps( wpProps : IMinWPBannerProps, wpInstanceID: string, currentWeb: string, ) : any {
     const exportStructure :any = {};
     // let wpInstanceIDSplit = wpInstanceID.split('|');
     // exportStructure.wpInstanceID = [ wpInstanceIDSplit[0], wpInstanceIDSplit[1], wpInstanceIDSplit[3]].join(' ~ ');
 
+    exportStructure.ageSlider = changesAgeSlider;
+
     exportStructure.wpInstanceID = wpInstanceID;
     exportStructure.currentWeb = currentWeb;
+
+
 
     exportStructure.Visitor = changeCustomHelp;
 
     exportStructure.easyPages = changeEasyPages;
     exportStructure.easyIcons = changeEasyIcons;
-    exportStructure.ageSlider = changesAgeSlider;
+  
 
     exportStructure.BannerBasics = changeBannerBasics;
     exportStructure.BannerNav = changeBannerNav;

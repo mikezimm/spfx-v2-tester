@@ -98,11 +98,11 @@ export {  } from '@mikezimm/fps-library-v2/lib/components';
  *    USED FOR PROPERTY PANE GROUPS
  */
 
-export { WebPartInfoGroup, } from '@mikezimm/fps-library-v2/lib/banner/components/PropPane/WebPartInfoGroup';
-export { FPSOptionsGroupBasic, } from '@mikezimm/fps-library-v2/lib/banner/PropPane/FPSOptionsGroupBasic';
-export { FPSBanner4BasicGroup,  } from '@mikezimm/fps-library-v2/lib/banner/PropPane/FPSBanner4BasicGroup';
-export { FPSBanner3NavGroup, } from '@mikezimm/fps-library-v2/lib/banner/PropPane/FPSBanner3NavGroup';
-export { FPSBanner3ThemeGroup } from '@mikezimm/fps-library-v2/lib/banner/PropPane/FPSBanner3ThemeGroup';
+export { WebPartInfoGroup, } from '@mikezimm/fps-library-v2/lib/banner/propPane/WebPartInfoGroup';
+export { FPSOptionsGroupBasic, } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSOptionsGroupBasic';
+export { FPSBanner4BasicGroup,  } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSBanner4BasicGroup';
+export { FPSBanner3NavGroup, } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSBanner3NavGroup';
+export { FPSBanner3ThemeGroup } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSBanner3ThemeGroup';
 export { FPSBanner3VisHelpGroup } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/FPSOptionsGroupVisHelp';
 export { FPSPinMePropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/PinMePropGroup';
 export { FPSOptionsExpando, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/ExpandoPropGroup'; //expandAudienceChoicesAll
@@ -111,4 +111,4 @@ export { FPSEasyPagesGroup, } from '@mikezimm/fps-library-v2/lib/banner/componen
 
 
 // For Main React component
-export { refreshPanel } from '@mikezimm/fps-library-v2/lib/banner/render/refreshPanel';
+// export { refreshPanel } from '@mikezimm/fps-library-v2/lib/banner/render/refreshPanel';
