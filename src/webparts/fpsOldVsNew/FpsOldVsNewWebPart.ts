@@ -67,7 +67,7 @@ import { FPSEasyPagesGroup, } from '@mikezimm/fps-library-v2/lib/banner/componen
 
 import { FPSImportPropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/ImportFunctions';
 
-import { exportIgnoreProps, importBlockPropsThis, WebPartAnalyticsChanges, WebPartPanelChanges,  } from './IFpsOldVsNewWebPartProps';
+import { exportIgnorePropsWP, importBlockPropsWP, WebPartAnalyticsChanges, WebPartPanelChanges,  } from './IFpsOldVsNewWebPartProps';
 
 
 
@@ -90,8 +90,8 @@ export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPar
     this._environmentMessage = this._getEnvironmentMessage();
 
     this._repoLink = gitRepoDrillDown; //Set as any but will get created in FPSSuperOnOnit
-    this._exportIgnoreProps = exportIgnoreProps;
-    this._importBlockProps = importBlockPropsThis;
+    this._exportIgnorePropsWP = exportIgnorePropsWP;
+    this._importBlockPropsWP = importBlockPropsWP;
     this._trickyApp = 'FPS UPDATE FPSBaseClass';
     this._trickyEmailsWP = []; // These are emails that get tricky functionality for this specific web part
   
