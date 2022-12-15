@@ -31,17 +31,6 @@ import { IFpsOldVsNewProps } from './components/IFpsOldVsNewProps';
 
 import { PreConfiguredProps,  } from './CoreFPS/PreConfiguredSettings';
 
-/***
- *    d8888b. d8888b.  .d88b.  d8888b.       d888b  d8888b.  .d88b.  db    db d8888b. .d8888. 
- *    88  `8D 88  `8D .8P  Y8. 88  `8D      88' Y8b 88  `8D .8P  Y8. 88    88 88  `8D 88'  YP 
- *    88oodD' 88oobY' 88    88 88oodD'      88      88oobY' 88    88 88    88 88oodD' `8bo.   
- *    88~~~   88`8b   88    88 88~~~        88  ooo 88`8b   88    88 88    88 88~~~     `Y8b. 
- *    88      88 `88. `8b  d8' 88           88. ~8~ 88 `88. `8b  d8' 88b  d88 88      db   8D 
- *    88      88   YD  `Y88P'  88            Y888P  88   YD  `Y88P'  ~Y8888P' 88      `8888Y' 
- *
- *    USED FOR PROPERTY PANE GROUPS
- */
-
 import { PropertyPaneWebPartInformation } from '@pnp/spfx-property-controls/lib/PropertyPaneWebPartInformation';
 
 import { WebPartInfoGroup, } from '@mikezimm/fps-library-v2/lib/banner/propPane/WebPartInfoGroup';
@@ -54,33 +43,9 @@ import { FPSPinMePropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features
 import { FPSOptionsExpando, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/ExpandoPropGroup'; //expandAudienceChoicesAll
 import { FPSEasyPagesGroup, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/EasyPagesGroup'; //expandAudienceChoicesAll
 
+import { FPSImportPropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/ImportFunctions';
 
- /***
-  *    d8888b. d8888b.  .d88b.  d8888b.      d888888b .88b  d88. d8888b.  .d88b.  d8888b. d888888b d888888b d8b   db  d888b  
-  *    88  `8D 88  `8D .8P  Y8. 88  `8D        `88'   88'YbdP`88 88  `8D .8P  Y8. 88  `8D `~~88~~'   `88'   888o  88 88' Y8b 
-  *    88oodD' 88oobY' 88    88 88oodD'         88    88  88  88 88oodD' 88    88 88oobY'    88       88    88V8o 88 88      
-  *    88~~~   88`8b   88    88 88~~~           88    88  88  88 88~~~   88    88 88`8b      88       88    88 V8o88 88  ooo 
-  *    88      88 `88. `8b  d8' 88             .88.   88  88  88 88      `8b  d8' 88 `88.    88      .88.   88  V888 88. ~8~ 
-  *    88      88   YD  `Y88P'  88           Y888888P YP  YP  YP 88       `Y88P'  88   YD    YP    Y888888P VP   V8P  Y888P  
-  *
-  *    USED for IMPORTING and EXPORTING
-  */
- 
- import { FPSImportPropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/ImportFunctions';
-
- 
- /***
-  *     .d8b.  d8b   db  .d8b.  db      db    db d888888b d888888b  .o88b. .d8888. 
-  *    d8' `8b 888o  88 d8' `8b 88      `8b  d8' `~~88~~'   `88'   d8P  Y8 88'  YP 
-  *    88ooo88 88V8o 88 88ooo88 88       `8bd8'     88       88    8P      `8bo.   
-  *    88~~~88 88 V8o88 88~~~88 88         88       88       88    8b        `Y8b. 
-  *    88   88 88  V888 88   88 88booo.    88       88      .88.   Y8b  d8 db   8D 
-  *    YP   YP VP   V8P YP   YP Y88888P    YP       YP    Y888888P  `Y88P' `8888Y' 
-  *
-  *    USED FOR ANALYTICS AND LOGGING
-  */
- 
- import { exportIgnoreProps, importBlockPropsThis, WebPartAnalyticsChanges, WebPartPanelChanges,  } from './IFpsOldVsNewWebPartProps';
+import { exportIgnoreProps, importBlockPropsThis, WebPartAnalyticsChanges, WebPartPanelChanges,  } from './IFpsOldVsNewWebPartProps';
 
 
  /***
@@ -94,8 +59,8 @@ import { FPSEasyPagesGroup, } from '@mikezimm/fps-library-v2/lib/banner/componen
   *     USED BY BANNER COMPONENTS
   */
 
-  import { initializeIcons } from '@uifabric/icons';
-  initializeIcons();
+import { initializeIcons } from '@uifabric/icons';
+initializeIcons();
 
 require('@mikezimm/fps-styles/dist/GrayPropPaneAccordions.css');
 require('@mikezimm/fps-styles/dist/FPSPinMe.css');
@@ -106,11 +71,10 @@ require('@mikezimm/fps-styles/dist/performance.css');
 
 import { gitRepoDrillDown } from '@mikezimm/fps-library-v2/lib/components/atoms/Links/LinksRepos';
 import { IFpsOldVsNewWebPartProps } from './IFpsOldVsNewWebPartProps';
-import { FPSBaseClass } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPartClass/FPSBaseClass';
 import { runFPSSuperOnInit } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPartClass/runSuperOnInit';
 import { runFPSWebPartRender } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPartClass/runWebPartRender';
 import { onFPSPropPaneCHanged } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPartClass/runOnPropChange';
-
+import { FPSBaseClass } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPartClass/FPSBaseClass';
 
 export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPartProps > {
 
