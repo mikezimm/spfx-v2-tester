@@ -18,6 +18,28 @@ import * as strings from 'FpsOldVsNewWebPartStrings';
 import FpsOldVsNew from './components/FpsOldVsNew';
 import { IFpsOldVsNewProps } from './components/IFpsOldVsNewProps';
 
+
+ /***
+  *     .o88b. .d8888. .d8888.      d8888b. d88888b  .d88b.  db    db d888888b d8888b. d88888b .d8888. 
+  *    d8P  Y8 88'  YP 88'  YP      88  `8D 88'     .8P  Y8. 88    88   `88'   88  `8D 88'     88'  YP 
+  *    8P      `8bo.   `8bo.        88oobY' 88ooooo 88    88 88    88    88    88oobY' 88ooooo `8bo.   
+  *    8b        `Y8b.   `Y8b.      88`8b   88~~~~~ 88    88 88    88    88    88`8b   88~~~~~   `Y8b. 
+  *    Y8b  d8 db   8D db   8D      88 `88. 88.     `8P  d8' 88b  d88   .88.   88 `88. 88.     db   8D 
+  *     `Y88P' `8888Y' `8888Y'      88   YD Y88888P  `Y88'Y8 ~Y8888P' Y888888P 88   YD Y88888P `8888Y' 
+  *
+  *     USED BY BANNER COMPONENTS
+  */
+
+import { initializeIcons } from '@uifabric/icons';
+initializeIcons();
+
+require('@mikezimm/fps-styles/dist/GrayPropPaneAccordions.css');
+require('@mikezimm/fps-styles/dist/FPSPinMe.css');
+require('@mikezimm/fps-styles/dist/FPSHeadings.css');
+require('@mikezimm/fps-styles/dist/PropPanelHelp.css');
+require('@mikezimm/fps-styles/dist/performance.css');
+
+
 /***
  *    d88888b d8888b. .d8888.      d8888b. d8888b. d88888b .d8888. d88888b d888888b .d8888. 
  *    88'     88  `8D 88'  YP      88  `8D 88  `8D 88'     88'  YP 88'     `~~88~~' 88'  YP 
@@ -48,25 +70,7 @@ import { FPSImportPropsGroup } from '@mikezimm/fps-library-v2/lib/banner/feature
 import { exportIgnoreProps, importBlockPropsThis, WebPartAnalyticsChanges, WebPartPanelChanges,  } from './IFpsOldVsNewWebPartProps';
 
 
- /***
-  *     .o88b. .d8888. .d8888.      d8888b. d88888b  .d88b.  db    db d888888b d8888b. d88888b .d8888. 
-  *    d8P  Y8 88'  YP 88'  YP      88  `8D 88'     .8P  Y8. 88    88   `88'   88  `8D 88'     88'  YP 
-  *    8P      `8bo.   `8bo.        88oobY' 88ooooo 88    88 88    88    88    88oobY' 88ooooo `8bo.   
-  *    8b        `Y8b.   `Y8b.      88`8b   88~~~~~ 88    88 88    88    88    88`8b   88~~~~~   `Y8b. 
-  *    Y8b  d8 db   8D db   8D      88 `88. 88.     `8P  d8' 88b  d88   .88.   88 `88. 88.     db   8D 
-  *     `Y88P' `8888Y' `8888Y'      88   YD Y88888P  `Y88'Y8 ~Y8888P' Y888888P 88   YD Y88888P `8888Y' 
-  *
-  *     USED BY BANNER COMPONENTS
-  */
 
-import { initializeIcons } from '@uifabric/icons';
-initializeIcons();
-
-require('@mikezimm/fps-styles/dist/GrayPropPaneAccordions.css');
-require('@mikezimm/fps-styles/dist/FPSPinMe.css');
-require('@mikezimm/fps-styles/dist/FPSHeadings.css');
-require('@mikezimm/fps-styles/dist/PropPanelHelp.css');
-require('@mikezimm/fps-styles/dist/performance.css');
 
 
 import { gitRepoDrillDown } from '@mikezimm/fps-library-v2/lib/components/atoms/Links/LinksRepos';
