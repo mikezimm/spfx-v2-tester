@@ -42,7 +42,8 @@ export const webParTips : any[] = [
 ];
 
 
-export function getRandomTip( ) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function getRandomTip( ): any {
 
   return webParTips[Math.floor(Math.random() * webParTips.length)];
 

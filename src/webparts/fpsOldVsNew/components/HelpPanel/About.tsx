@@ -1,13 +1,13 @@
 
 import { IHelpTable, } from '@mikezimm/fps-library-v2/lib/banner/components/SingleHelpPage/ISinglePageProps';
-import { repoLink, } from '../../fpsMinIndex';
+import { IRepoLinks, } from '../../fpsMinIndex';
 // import { convertIssuesMarkdownStringToSpan } from '../../fpsReferences';
 
 import { createAboutRow } from '@mikezimm/fps-library-v2/lib/banner/components/Panel/createAboutRow';
 
 export const panelVersionNumber = '2022-07-22 -  1.0.0.01'; //Added to show in panel
 
-export function aboutTable( showRepoLinks: boolean ) {
+export function aboutTable( showRepoLinks: boolean, repoLink: IRepoLinks ) : { table: IHelpTable } {
 
     const table : IHelpTable  = {
         heading: 'Version History',

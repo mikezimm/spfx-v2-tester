@@ -3,12 +3,10 @@ import styles from './FpsOldVsNew.module.scss';
 import { IFpsOldVsNewProps, IFpsOldVsNewState } from './IFpsOldVsNewProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
-import EasyPagesHook from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/componentSources';
-
 import { getBannerPages, } from './HelpPanel/AllContent';
 import { IBannerPages } from "@mikezimm/fps-library-v2/lib/banner/mainReact/IWebpartBannerProps";
 import { ILoadPerformance, startPerformOp, updatePerformanceEnd } from "../fpsMinIndex";
-import { IFPSPinMenu, IPinMeState } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/Interfaces';
+import { IPinMeState } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/Interfaces';
 
 import FetchBannerX from '@mikezimm/fps-library-v2/lib/banner/bannerX/FetchBannerX';
 import { CommandsPage } from '../CoreFPS/PropPaneHelpPages/Commands';
@@ -144,41 +142,39 @@ if ( refresh === true ) {
 
 // public async _updatePerformance () {
 public _updatePerformance (): boolean  {
+  /**
+   * This section is needed if you want to track performance in the react component.
+   *    In the case of ALVFM, I do the following:
+   *    this._performance.ops.fetch1 = startPerformOp( <=== Starts tracking perforamnce
+   *    ... Stuff to do
+   *    this._performance.ops.fetch1 = updatePerformanceEnd( <=== ENDS tracking performance
+   *    this._replacePanelHTML = refreshPanelHTML( <=== This updates the performance panel content
+   */
 
+  const updateThis = this._performance.ops.fetch2 ? 'fetch3' : 'fetch2';
 
-/**
- * This section is needed if you want to track performance in the react component.
- *    In the case of ALVFM, I do the following:
- *    this._performance.ops.fetch1 = startPerformOp( <=== Starts tracking perforamnce
- *    ... Stuff to do
- *    this._performance.ops.fetch1 = updatePerformanceEnd( <=== ENDS tracking performance
- *    this._replacePanelHTML = refreshPanelHTML( <=== This updates the performance panel content
- */
+  //Start tracking performance
+  this._performance.ops[updateThis] = startPerformOp( `${updateThis} TitleText`, this.props.bannerProps.displayMode );
 
- const updateThis = this._performance.ops.fetch2 ? 'fetch3' : 'fetch2';
-
- //Start tracking performance
- this._performance.ops[updateThis] = startPerformOp( `${updateThis} TitleText`, this.props.bannerProps.displayMode );
-
- /**
+  /**
   *       Do async code here
   */
 
- //End tracking performance
- const ops: any = this._performance.ops;
+  //End tracking performance
+  const ops: any = this._performance.ops;
 
- this._performance.ops[updateThis] = updatePerformanceEnd( ops[updateThis], true, 888 );
+  this._performance.ops[updateThis] = updatePerformanceEnd( ops[updateThis], true, 888 );
 
- alert(`${[updateThis]} should now be updated`);
+  alert(`${[updateThis]} should now be updated`);
 
- if ( fpsconsole === true ) console.log('React - _updatePerformance:', JSON.parse(JSON.stringify(this._performance)) );
+  if ( fpsconsole === true ) console.log('React - _updatePerformance:', JSON.parse(JSON.stringify(this._performance)) );
 
-//PERFORMANCE COMMENT:  YOU NEED TO UPDATE STATE HERE FOR IT TO REFLECT IN THE BANNER.
-this.setState({ 
+  //PERFORMANCE COMMENT:  YOU NEED TO UPDATE STATE HERE FOR IT TO REFLECT IN THE BANNER.
+  this.setState({ 
   refreshId: this._newRefreshId(),
-});
+  });
 
-return true;
+  return true;
 
 }
 
@@ -223,8 +219,6 @@ return true;
           <h2>Well done, {escape(userDisplayName)}!</h2>
           <div>{environmentMessage}</div>
           <div>Web part property value: <strong>{escape(description)}</strong></div>
-        </div>
-        <div>
         </div>
       </section>
     );

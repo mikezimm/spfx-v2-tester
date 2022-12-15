@@ -17,11 +17,11 @@ import { getRandomTip, webParTips } from './Tips';
 import { whyContent } from './Whyme';  //2022-01-31: Added Pivot Tiles
 
 
-export function getBannerPages ( bannerProps: IWebpartBannerProps ) {
+export function getBannerPages ( bannerProps: IWebpartBannerProps ): IBannerPages {
 
     const result : IBannerPages = {
         whyContent:  whyContent( ),
-        aboutTable:  aboutTable( bannerProps.showRepoLinks ),
+        aboutTable:  aboutTable( bannerProps.showRepoLinks, bannerProps.gitHubRepo ),
         gettingStartedContent:  gettingStartedContent( ),
         errorsContent:  errorsContent( ),
         advancedContent:  advancedContent( ),
