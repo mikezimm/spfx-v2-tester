@@ -1,8 +1,7 @@
 
 
-export { IWebpartBannerProps } from '@mikezimm/fps-library-v2/lib/banner/mainReact/IWebpartBannerProps';
 import { tricksTable } from '@mikezimm/fps-library-v2/lib/banner/features/Tricky/ReusaableTricks';
-import { IBannerPages, } from '@mikezimm/fps-library-v2/lib/banner/mainReact/IWebpartBannerProps';
+import { IBannerPages, } from '../../fpsMinIndex';
 import { IRepoLinks } from '../../fpsMinIndex';
 
 import { aboutTable } from './About';

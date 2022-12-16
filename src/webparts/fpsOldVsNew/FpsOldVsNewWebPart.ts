@@ -54,24 +54,12 @@ require('@mikezimm/fps-styles/dist/performance.css');
 import { PreConfiguredProps,  } from './CoreFPS/PreConfiguredSettings';
 
 import { PropertyPaneWebPartInformation } from '@pnp/spfx-property-controls/lib/PropertyPaneWebPartInformation';
+import { getAllDefaultFPSFeatureGroups } from '@mikezimm/fps-library-v2/lib/banner/propPane/AllDefaultFPSGroups';
 
 import { WebPartInfoGroup, } from '@mikezimm/fps-library-v2/lib/banner/propPane/WebPartInfoGroup';
-import { FPSOptionsGroupBasic, } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSOptionsGroupBasic';
-import { FPSBanner4BasicGroup,  } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSBanner4BasicGroup';
-import { FPSBanner3NavGroup, } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSBanner3NavGroup';
-import { FPSBanner3ThemeGroup } from '@mikezimm/fps-library-v2/lib/banner/propPane/FPSBanner3ThemeGroup';
-import { FPSBanner3VisHelpGroup } from '@mikezimm/fps-library-v2/lib/banner/components/VisitorPanel/FPSOptionsGroupVisHelp';
-import { FPSPinMePropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/PinMePropGroup';
-import { FPSOptionsExpando, } from '@mikezimm/fps-library-v2/lib/banner/features/Expando/ExpandoPropGroup'; //expandAudienceChoicesAll
-import { FPSEasyPagesGroup, } from '@mikezimm/fps-library-v2/lib/banner/components/EasyPages/EasyPagesGroup'; //expandAudienceChoicesAll
-
-import { FPSImportPropsGroup } from '@mikezimm/fps-library-v2/lib/banner/features/ImportExport/ImportFunctions';
+import { FPSPinMePropsGroupX } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/PinMePropGroup';
 
 import { exportIgnorePropsWP, importBlockPropsWP, WebPartAnalyticsChanges, WebPartPanelChanges,  } from './IFpsOldVsNewWebPartProps';
-
-
-
-
 
 import { gitRepoDrillDown } from '@mikezimm/fps-library-v2/lib/components/atoms/Links/LinksRepos';
 import { IFpsOldVsNewWebPartProps } from './IFpsOldVsNewWebPartProps';
@@ -79,7 +67,7 @@ import { runFPSSuperOnInit } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPar
 import { runFPSWebPartRender } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPartClass/runWebPartRender';
 import { onFPSPropPaneCHanged } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPartClass/runOnPropChange';
 import { FPSBaseClass } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPartClass/FPSBaseClass';
-import { IPageLayoutType } from '@mikezimm/fps-library-v2/lib/common/interfaces/indexes/Layout';
+import { IThisFPSWebPartClass } from '@mikezimm/fps-library-v2/lib/banner/FPSWebPartClass/IThisFPSWebPartClass';
 
 export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPartProps > {
 
@@ -95,7 +83,8 @@ export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPar
     this._importBlockPropsWP = importBlockPropsWP;
     this._trickyApp = 'FPS UPDATE FPSBaseClass';
     this._trickyEmailsWP = []; // These are emails that get tricky functionality for this specific web part
-  
+    this._allowPinMe = true;
+
     return super.onInit().then(async _ => {
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -106,9 +95,6 @@ export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPar
   }
 
   public render(): void {
-
-    console.log('_pageLayoutType:', this.context[`_pageLayoutType`] );
-    console.log('pageLayoutType:', this.context['pageLayoutType' as '_pageLayoutType'] );
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const bannerProps = runFPSWebPartRender( this as any, strings, WebPartAnalyticsChanges, WebPartPanelChanges, );
@@ -182,47 +168,44 @@ export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPar
  */
 
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  protected async onPropertyPaneFieldChanged(propertyPath: string, oldValue: any, newValue: any): Promise<void> {
+    super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    protected async onPropertyPaneFieldChanged(propertyPath: string, oldValue: any, newValue: any): Promise<void> {
-      super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
+    await onFPSPropPaneCHanged( this as any, propertyPath, oldValue, newValue );
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      await onFPSPropPaneCHanged( this as any, propertyPath, oldValue, newValue );
+    this.context.propertyPane.refresh();
 
-      this.context.propertyPane.refresh();
+    this.render();
 
-      this.render();
-
-    }
+  }
 
 
 
-    protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-      const _pageLayoutType: IPageLayoutType = this.context[`_pageLayoutType`];
+  protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
 
-      const groups: IPropertyPaneGroup[] = [];
-      groups.push( WebPartInfoGroup( this._repoLink, 'Sample FPS Banner component :)', PropertyPaneWebPartInformation ) );
-      groups.push( FPSPinMePropsGroup );
-      groups.push( FPSEasyPagesGroup( this.properties, this.context.pageContext as any ) );
-      groups.push( FPSBanner3VisHelpGroup( this.context, this.onPropertyPaneFieldChanged, this.properties ) );
-      groups.push( FPSBanner4BasicGroup( this._forceBanner , this._modifyBannerTitle, this.properties.showBanner, this.properties.infoElementChoice === 'Text' ? true : false, true, true ) );
-      groups.push( FPSBanner3NavGroup() );
-      groups.push( FPSBanner3ThemeGroup( this._modifyBannerStyle, this.properties.showBanner, this.properties.lockStyles, false ) );
-      groups.push( FPSOptionsGroupBasic( false, true, true, true, this.properties.allSectionMaxWidthEnable, true, this.properties.allSectionMarginEnable, true, _pageLayoutType ) );
-      groups.push( FPSOptionsExpando( this.properties.enableExpandoramic, this.properties.enableExpandoramic,null, null ) );
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-this-alias
+    const thisAsAny: IThisFPSWebPartClass = this as any;
 
-      return {
-        pages: [
-          {
-            header: {
-              description: strings.PropertyPaneDescription
-            },
-            displayGroupsAsAccordion: true, //DONT FORGET THIS IF PROP PANE GROUPS DO NOT EXPAND
-            groups: groups
-          }
-        ]
-      };
-    }
+    let groups: IPropertyPaneGroup[] = [ WebPartInfoGroup( this._repoLink, 'Sample FPS Banner component :)', PropertyPaneWebPartInformation ) ];
+    const FPSGroups: IPropertyPaneGroup[] = getAllDefaultFPSFeatureGroups ( thisAsAny );
 
-    
+    groups.push( FPSPinMePropsGroupX( thisAsAny ) );
+
+    groups = [ ...groups, ...FPSGroups ];
+
+    return {
+      pages: [
+        {
+          header: {
+            description: strings.PropertyPaneDescription
+          },
+          displayGroupsAsAccordion: true, //DONT FORGET THIS IF PROP PANE GROUPS DO NOT EXPAND
+          groups: groups
+        }
+      ]
+    };
+  }
+
 }

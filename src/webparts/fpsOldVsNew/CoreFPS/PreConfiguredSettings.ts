@@ -1,6 +1,6 @@
 
-import { PresetFPSBanner, } from '@mikezimm/fps-library-v2/lib/common/PropPaneHelp/PreConfiguredConstants';
-import { IPreConfigSettings, IAllPreConfigSettings,  } from '@mikezimm/fps-library-v2/lib/common/PropPaneHelp/IPreConfig';
+import { PresetFPSBanner, } from '../fpsMinIndex';
+import { IPreConfigSettings, IAllPreConfigSettings,  } from '../fpsMinIndex';
 
 export const WPForceEverywhere : IPreConfigSettings = {
     source: 'WPForceEverywhere',
