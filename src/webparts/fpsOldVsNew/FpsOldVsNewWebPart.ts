@@ -84,6 +84,7 @@ export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPar
     this._trickyApp = 'FPS UPDATE FPSBaseClass';
     this._trickyEmailsWP = []; // These are emails that get tricky functionality for this specific web part
     this._allowPinMe = true;
+    this._allowSiteThemeChoice = true;
 
     return super.onInit().then(async _ => {
 
@@ -190,8 +191,6 @@ export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPar
 
     let groups: IPropertyPaneGroup[] = [ WebPartInfoGroup( this._repoLink, 'Sample FPS Banner component :)', PropertyPaneWebPartInformation ) ];
     const FPSGroups: IPropertyPaneGroup[] = getAllDefaultFPSFeatureGroups ( thisAsAny );
-
-    groups.push( FPSPinMePropsGroupX( thisAsAny ) );
 
     groups = [ ...groups, ...FPSGroups ];
 

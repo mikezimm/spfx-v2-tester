@@ -7,5 +7,5 @@ export { IPerformanceOp, ILoadPerformance, IHistoryPerformance, ILoadPerformance
 export { IBannerPages, } from '@mikezimm/fps-library-v2/lib/banner/mainReact/IWebpartBannerProps';
 export { IPinMeState, } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/Interfaces';
 
-export { PresetFPSBanner, } from '@mikezimm/fps-library-v2/lib/common/PropPaneHelp/PreConfiguredConstants';
-export { IPreConfigSettings, IAllPreConfigSettings,  } from '@mikezimm/fps-library-v2/lib/common/PropPaneHelp/IPreConfig';
+export { PresetFPSBanner, } from '@mikezimm/fps-library-v2/lib/common/PropPaneHelp/preconfig/PreConfiguredConstants';
+export { IPreConfigSettings, IAllPreConfigSettings,  } from '@mikezimm/fps-library-v2/lib/common/PropPaneHelp/preconfig/IPreConfig';

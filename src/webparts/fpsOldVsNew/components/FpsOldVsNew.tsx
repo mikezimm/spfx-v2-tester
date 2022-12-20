@@ -1,23 +1,32 @@
 import * as React from 'react';
 import styles from './FpsOldVsNew.module.scss';
+
 import { IFpsOldVsNewProps, IFpsOldVsNewState } from './IFpsOldVsNewProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import { getBannerPages, } from './HelpPanel/AllContent';
 import { IBannerPages } from "@mikezimm/fps-library-v2/lib/banner/mainReact/IWebpartBannerProps";
+
 import { ILoadPerformance, startPerformOp, updatePerformanceEnd } from "../fpsMinIndex";
 import { IPinMeState } from '@mikezimm/fps-library-v2/lib/banner/features/PinMe/Interfaces';
 
 import FetchBannerX from '@mikezimm/fps-library-v2/lib/banner/bannerX/FetchBannerX';
 import { CommandsPage } from '../CoreFPS/PropPaneHelpPages/Commands';
 
+import ReactListItems from '@mikezimm/fps-library-v2/lib/components/molecules/ReactListV1/component/reactListView';
+// import { getMaxRichHeight } from '@mikezimm/fps-library-v2/lib/components/molecules/ReactListV1/functions/richHeight';
+import { Sample } from './SampleListData';
+import { View } from './Views';
+
+import { ISiteThemes } from "@mikezimm/fps-library-v2/lib/common/commandStyles/ISiteThemeChoices";
+const SiteThemes: ISiteThemes = { dark: styles.fpsSiteThemeDark, light: styles.fpsSiteThemeLight, primary: styles.fpsSiteThemePrimary };
 
 //Use this to add more console.logs for this component
 const urlParams : URLSearchParams = new URLSearchParams( window.location.search );
 const fpsconsole : boolean = urlParams.get( 'fpsconsole' ) === 'true' ? true : false;
 const consolePrefix: string = 'fpsconsole: FpsCore115Banner';
 
-require ('@mikezimm/fps-styles/dist/FPSHeadings.css');
+// require ('@mikezimm/fps-styles/dist/FPSHeadings.css');
 
 export default class FpsOldVsNew extends React.Component<IFpsOldVsNewProps, IFpsOldVsNewState > {
 
@@ -182,11 +191,11 @@ public _updatePerformance (): boolean  {
 
   public render(): React.ReactElement<IFpsOldVsNewProps> {
     const {
-      description,
-      isDarkTheme,
-      environmentMessage,
+      // description,
+      // isDarkTheme,
+      // environmentMessage,
       hasTeamsContext,
-      userDisplayName
+      // userDisplayName
     } = this.props;
 
       const Banner = <FetchBannerX 
@@ -194,7 +203,7 @@ public _updatePerformance (): boolean  {
       // bonusHTML1={ 'BonusHTML1 Text' }
       panelPerformance={ this._performance }
       // bonusHTML2={ <div>BonusHTML2 Div</div> }
-
+      siteThemes = { SiteThemes }
       bannerProps={ this.props.bannerProps }
       parentState={ this.state }
 
@@ -211,14 +220,47 @@ public _updatePerformance (): boolean  {
 
     />;
 
+    const blueBar = <span  key={ 'm' }>
+          <span style={{ paddingLeft: 0 }}> {'>'} </span>
+          <span style={{ paddingLeft: 10, paddingRight: 20, fontSize: '20px' }}> { `This is blue bar text` } </span>
+        </span>;
+
+    const reactListItems  = 
+    <ReactListItems 
+        parentListFieldTitles={ '' }
+        // themeClass={ getThemeClass( this.props.bannerProps.themeChoice, SiteThemes ) }  // This keeps bar and banner in sync
+        themeClass={ styles.fpsSiteThemePrimary }
+        richColumns = { [] }
+        richHeight = { '30px' }
+        updateRichHeightProps = { null }
+        webURL = { window.location.pathname }
+        parentListURL = { window.location.pathname }
+        listName = { 'TestList' }
+        isLibrary = { false }
+        blueBar={ blueBar }
+        blueBarTitleText= { `Refiners selected: XYZ` }
+
+        contextUserInfo = { this.props.bannerProps.FPSUser }
+        sourceUserInfo = { this.props.bannerProps.FPSUser }
+
+        viewFields={ View }
+        groupByFields={ [] }
+        items={ Sample } //Sample
+        itemsPerPage={ 10 }
+        resetArrows={ null }
+        includeDetails= { true }
+        includeAttach= { true }
+        includeListLink = { true }
+        createItemLink = { true }
+        quickCommands={ null }
+    
+    />;
+
     return (
       <section className={`${styles.fpsOldVsNew} ${hasTeamsContext ? styles.teams : ''}`}>
         { Banner }
         <div className={[ styles.welcome, 'gradiant1' ].join(' ')}>
-          <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
-          <h2>Well done, {escape(userDisplayName)}!</h2>
-          <div>{environmentMessage}</div>
-          <div>Web part property value: <strong>{escape(description)}</strong></div>
+          { reactListItems }
         </div>
       </section>
     );
