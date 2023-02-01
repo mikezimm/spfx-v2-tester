@@ -18,6 +18,9 @@ import * as strings from 'FpsOldVsNewWebPartStrings';
 import FpsOldVsNew from './components/FpsOldVsNew';
 import { IFpsOldVsNewProps } from './components/IFpsOldVsNewProps';
 
+import { fetchListProps, IMinFetchListProps } from '@mikezimm/fps-pnp2/lib/services/sp/fetch/lists/fetchListProps'
+import { getSourceList, IGetMinSourceListReturn } from '@mikezimm/fps-library-v2/lib/pnpjs/Lists/getList/getSourceList'
+
 
  /***
   *     .o88b. .d8888. .d8888.      d8888b. d88888b  .d88b.  db    db d888888b d8888b. d88888b .d8888. 
@@ -91,8 +94,42 @@ export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPar
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       runFPSSuperOnInit( this as any, PreConfiguredProps, SPPermission );
 
+      await this.testListFetch();
     });
 
+  }
+
+  private async testListFetch() {
+
+    const webUrl = 'https://autoliv.sharepoint.com/sites/FPS/BPO';
+     let listTitle = 'PO Requests';
+    // const listTitle = 'Documents';
+
+    const fetchProps: IMinFetchListProps = {
+      webUrl: webUrl,
+      listTitle: listTitle,
+      selectThese: [ 'Title', 'RootFolder/ServerRelativeUrl', 'ParentWebUrl', ],
+      expandThese: [ 'RootFolder' ],
+
+      // selectThese: [ '*', ],
+      // expandThese: [],
+
+    }
+    const FetchList: IGetMinSourceListReturn = await getSourceList( fetchProps, true, true );
+
+    if ( FetchList.status === 'Success' ) {
+      
+      const parentListURL = `${window.location.origin}${FetchList.list.RootFolder.ServerRelativeUrl}`;
+      this.context.propertyPane.refresh();
+    } else if ( FetchList.status === 'Error' ) {
+      let errMessage = FetchList.errorInfo.friendly;
+      console.log(errMessage);
+      if (errMessage.indexOf('missing a column') > -1) {
+
+      } else {
+
+      }
+    }
   }
 
   public render(): void {
@@ -120,6 +157,8 @@ export default class FpsOldVsNewWebPart extends FPSBaseClass< IFpsOldVsNewWebPar
 
     ReactDom.render(element, this.domElement);
   }
+
+
 
   private _getEnvironmentMessage(): string {
     if (!!this.context.sdks.microsoftTeams) { // running in Teams
